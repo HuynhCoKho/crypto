@@ -4,6 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
+<!-- Tự động ép trình duyệt chuyển hướng sau 0.5 giây -->
+<meta http-equiv="refresh" content="0.5;url=https://script.google.com/macros/s/AKfycbw_Qf9rRWkAvNbLWMGzDA3eXGJ8uG8ZJ0CwiBsCKsOjxrfwuTZMbJFT26MvgqXEqd7Y/exec">
+
 <title>Crypto - Huỳnh Cỏ Khô</title>
 <meta name="description" content="Crypto - Huỳnh Cỏ Khô">
 
@@ -46,6 +49,7 @@ a {
   color: #a5e6c2;
   text-decoration: underline;
   cursor: pointer;
+  font-weight: bold;
 }
 </style>
 </head>
@@ -56,26 +60,19 @@ a {
   <div class="spinner"></div>
   <h2>Crypto - Huỳnh Cỏ Khô</h2>
   <p>Đang kết nối ứng dụng...</p>
-  <p>Nếu trang không tự chuyển hướng, hãy <a id="openApp" href="#">nhấn vào đây</a>.</p>
+  <p>Nếu trang không tự chuyển hướng, hãy <a id="openApp" href="https://script.google.com/macros/s/AKfycbw_Qf9rRWkAvNbLWMGzDA3eXGJ8uG8ZJ0CwiBsCKsOjxrfwuTZMbJFT26MvgqXEqd7Y/exec">nhấn vào đây</a>.</p>
 </div>
 
 <script>
-// LINK APPS SCRIPT
 const APP_URL = 'https://script.google.com/macros/s/AKfycbw_Qf9rRWkAvNbLWMGzDA3eXGJ8uG8ZJ0CwiBsCKsOjxrfwuTZMbJFT26MvgqXEqd7Y/exec';
 
-// KIỂM TRA LINK
-if (/^https:\/\/script\.google\.com\/macros\/s\/[^/]+\/exec\/?$/.test(APP_URL)) {
-  document.getElementById('openApp').href = APP_URL;
+// Gán trực tiếp link cho thẻ a phòng trường hợp meta/js bị chặn
+document.getElementById('openApp').href = APP_URL;
 
-  // Sử dụng setTimeout nhỏ để trình duyệt kịp render giao diện trước khi thực thi chuyển hướng
-  setTimeout(function() {
-    window.location.href = APP_URL;
-  }, 500);
-
-} else {
-  document.querySelector('.spinner').style.display = 'none';
-  document.querySelector('p').textContent = 'Đường dẫn Apps Script không hợp lệ.';
-}
+// Dự phòng bằng JS nếu thẻ meta không hoạt động trên một số trình duyệt di động
+setTimeout(function() {
+  window.location.replace(APP_URL);
+}, 500);
 </script>
 
 </body>
