@@ -41,6 +41,12 @@ body {
 }
 
 p { color: #c1d8cc; }
+
+a {
+  color: #a5e6c2;
+  text-decoration: underline;
+  cursor: pointer;
+}
 </style>
 </head>
 
@@ -50,32 +56,26 @@ p { color: #c1d8cc; }
   <div class="spinner"></div>
   <h2>Crypto - Huỳnh Cỏ Khô</h2>
   <p>Đang kết nối ứng dụng...</p>
-  <p>Nếu chưa tự động chuyển trang, hãy
-    <a id="openApp" style="color:#a5e6c2" href="#">
-      nhấn vào đây
-    </a>.
-  </p>
+  <p>Nếu trang không tự chuyển hướng, hãy <a id="openApp" href="#">nhấn vào đây</a>.</p>
 </div>
 
 <script>
-
 // LINK APPS SCRIPT
 const APP_URL = 'https://script.google.com/macros/s/AKfycbw_Qf9rRWkAvNbLWMGzDA3eXGJ8uG8ZJ0CwiBsCKsOjxrfwuTZMbJFT26MvgqXEqd7Y/exec';
 
 // KIỂM TRA LINK
 if (/^https:\/\/script\.google\.com\/macros\/s\/[^/]+\/exec\/?$/.test(APP_URL)) {
-
   document.getElementById('openApp').href = APP_URL;
 
-  // CHUYỂN HƯỚNG TRỰC TIẾP
-  window.location.replace(APP_URL);
+  // Sử dụng setTimeout nhỏ để trình duyệt kịp render giao diện trước khi thực thi chuyển hướng
+  setTimeout(function() {
+    window.location.href = APP_URL;
+  }, 500);
 
 } else {
   document.querySelector('.spinner').style.display = 'none';
-  document.querySelector('p').textContent =
-    'Đường dẫn Apps Script không hợp lệ.';
+  document.querySelector('p').textContent = 'Đường dẫn Apps Script không hợp lệ.';
 }
-
 </script>
 
 </body>
