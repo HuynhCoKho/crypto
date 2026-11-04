@@ -4,9 +4,6 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<!-- Tự động ép trình duyệt chuyển hướng sau 0.5 giây -->
-<meta http-equiv="refresh" content="0.5;url=https://script.google.com/macros/s/AKfycbw_Qf9rRWkAvNbLWMGzDA3eXGJ8uG8ZJ0CwiBsCKsOjxrfwuTZMbJFT26MvgqXEqd7Y/exec">
-
 <title>Crypto - Huỳnh Cỏ Khô</title>
 <meta name="description" content="Crypto - Huỳnh Cỏ Khô">
 
@@ -23,33 +20,53 @@ body {
   color: #e7f5ed;
   font-family: Arial, sans-serif;
   text-align: center;
+  padding: 20px;
 }
 
 .container {
   padding: 30px;
+  max-width: 400px;
+  width: 100%;
+  background: #17362d;
+  border: 1px solid #235244;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
 }
 
-.spinner {
-  width: 42px;
-  height: 42px;
-  border: 4px solid #ffffff30;
-  border-top-color: #a5e6c2;
-  border-radius: 50%;
-  animation: spin 1s linear infinite;
-  margin: 0 auto 20px;
+h2 {
+  margin-top: 0;
+  font-size: 22px;
+  color: #fff;
 }
 
-@keyframes spin {
-  to { transform: rotate(360deg); }
+p {
+  color: #c1d8cc;
+  font-size: 14px;
+  line-height: 1.5;
+  margin-bottom: 24px;
 }
 
-p { color: #c1d8cc; }
-
-a {
-  color: #a5e6c2;
-  text-decoration: underline;
-  cursor: pointer;
+.btn {
+  display: inline-block;
+  background: #167a5a;
+  color: #ffffff;
+  padding: 14px 24px;
+  border-radius: 12px;
+  text-decoration: none;
   font-weight: bold;
+  font-size: 16px;
+  transition: background 0.2s, transform 0.1s;
+  width: 100%;
+  box-shadow: 0 4px 12px rgba(22, 122, 90, 0.4);
+}
+
+.btn:hover {
+  background: #1b966f;
+  transform: translateY(-2px);
+}
+
+.btn:active {
+  transform: translateY(0);
 }
 </style>
 </head>
@@ -57,22 +74,14 @@ a {
 <body>
 
 <div class="container">
-  <div class="spinner"></div>
   <h2>Crypto - Huỳnh Cỏ Khô</h2>
-  <p>Đang kết nối ứng dụng...</p>
-  <p>Nếu trang không tự chuyển hướng, hãy <a id="openApp" href="https://script.google.com/macros/s/AKfycbw_Qf9rRWkAvNbLWMGzDA3eXGJ8uG8ZJ0CwiBsCKsOjxrfwuTZMbJFT26MvgqXEqd7Y/exec">nhấn vào đây</a>.</p>
+  <p>Nhấn vào nút bên dưới để mở ứng dụng quản lý và theo dõi giá tài sản số.</p>
+  <a id="openApp" class="btn" href="#" target="_blank">Mở ứng dụng ngay</a>
 </div>
 
 <script>
 const APP_URL = 'https://script.google.com/macros/s/AKfycbw_Qf9rRWkAvNbLWMGzDA3eXGJ8uG8ZJ0CwiBsCKsOjxrfwuTZMbJFT26MvgqXEqd7Y/exec';
-
-// Gán trực tiếp link cho thẻ a phòng trường hợp meta/js bị chặn
 document.getElementById('openApp').href = APP_URL;
-
-// Dự phòng bằng JS nếu thẻ meta không hoạt động trên một số trình duyệt di động
-setTimeout(function() {
-  window.location.replace(APP_URL);
-}, 500);
 </script>
 
 </body>
